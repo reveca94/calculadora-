@@ -42,48 +42,151 @@ function calcular (){
 
 
 
+class Celular {
+  constructor(color, peso, tamaño, rdc, ram){
+    this.color = color;
+    this.peso = peso;
+    this.tamaño = tamaño;
+    this.resolucionDeCamara = rdc;
+    this.memoriaRam = ram;
+    this.encendido = false;
 
+  }
+ presionarBotonEncendido(){
+  if (this.encendido == false) {
+    alert("prendiendo");
+    this.encendido = true;
+  } else {
+    alert ("celular apagando");
+    this.encendido = false;
+  }
+ }
+reiniciar (){
+  if (this.encendido == true){
+    alert("reiniciando celular");
+  } else {
+    alert("el celular se esta apagando");
+   
+  }
+}
+tomarFotos(){
+  alert(`foto tomda en una resolucion de: ${this.resolucionDeCamara} `)
+}
+grabarVideo(){
+  alert(`grabando video en la resolucion de: ${this.resolucionDeCamara}`)
+}
+mostrarInfo(){
+  return`
+  color: <b>${this.color}</b></br>
+  peso:<b>${this.peso}</b></br>
+  Tamaño: <b>${this.tamaño}</b></br>
+  resolucion de video: <b>${this.resolucionDeCamara}</b></br>
+  memoria Ram:<b>${this.memoriaRam}</b></br>
+  `;
+}
+}
+class CelularAltaGama extends Celular{
+  constructor(color,peso,tamaño,rdc,ram,rdce){
+    super(color,peso,tamaño,rdc,ram);
+    this.resolucionDeCamaraExtra = rdce;
+  }
+  grabarVideoLento() {
+    alert("estas grabando en camara lenta");
+  }
+  reconocientoFacial(){
+    alert("vamos a iniciar un reconociemto facial")
+  }
+  infoAltaGama(){
+    return this.mobileInfo() + `resolucion de camara trasera: ${this.resolucionDeCamaraExtra}`;
+  }
+}
 
-
-const sumar = (num1, num2)=> {
-  return parseInt(num1) + parseInt(num2);
-}
-const restar = (num1, num2)=> {
-  return parseInt(num1) - parseInt(num2);
-}
-const dividir = (num1, num2)=> {
-  return parseInt(num1) / parseInt(num2);
-}
-const multiplicar = (num1, num2)=> {
-  return parseInt(num1) * parseInt(num2);
-}
-alert("¿que operacion deseas realizar?");
-let operacion = prompt("1: suma, 2: resta, 3: division, 4: multiplicacion");
+ //celular1 = new Celular("rojo", "150g", "5", "full hd", "2gb");
+ //celular2 = new Celular("negro", "100g", "5", "full hd", "2gb");
+ //celular3 = new Celular("azul", "120g", "5", "full hd", "2gb");
  
-if (operacion == 1) {
-  let numero1 = prompt("primero numero para sumar");
-  let numero2 = prompt("segundo numero para sumar");
-  total = sumar(numero1,numero2);
-  alert(`tu total es ${total}`);
+ //celular1.presionarBotonEncendido();
+ //celular1.tomarFotos();
+ //celular1.grabarVideo();
+ //celular1.reiniciar();
+ //celular1.presionarBotonEncendido();
+celular1 = new CelularAltaGama("rojo","130g","5.2","4k", "3gb","full hd");
+celular2 = new CelularAltaGama("negro","142g","6","4k","4gb","hd");
+ 
+document.write(`
+ ${celular1.mostrarInfo()} <br><br>
+ ${celular2.mostrarInfo()} <br>
+
+ `);
+
+ class app {
+  constructor(descargas, puntuacion,peso){
+    this.descargas = descargas;
+    this.puntuacion = puntuacion; 
+    this.peso = peso;
+    this.iniciada = false;
+    this.instalada =false;
+  }
+  abrir(){
+    if(this.iniciada = false) {
+      this.iniciada == true;
+      alert("app encendida");
+    }
+  }
+  cerrar(){
+    if(this.iniciada = true) {
+      this.iniciada == false;
+      alert("app cerrada");
+    } 
+  }
+  instalar(){
+    if(this.instalada == false) {
+      this.instalada = true;
+        alert("app instalada correctamente")
+    }
+  }
+  desinstalar(){
+    if(this.instalada == true) {
+      this.instalada = false;
+      alert("app desinstalada correctamente")
+    }
+  }
+  abrir(){
+    if(this.iniciada = false && this.instalada == true) {
+      this.iniciada == true;
+      alert("app encendida");
+    }
+  }
+  cerrar(){
+    if(this.iniciada = true && this.instalada == true) {
+      this.iniciada == false;
+      alert("app cerrada");
+    } 
+  }
+  appInfo(){ 
+    return true`
+    descargas:<b> ${this.descargas} </b></br>
+    puntuacion: <b>${this.puntuacion} </b></br>
+    peso: <b> ${this.peso} </b></br>
+    `
+  }
+  
  }
- else if (operacion == 2) {
-  let numero1 = prompt("primero numero para restar");
-  let numero2 = prompt("segundo numero para restar");
-  total = restar(numero1,numero2);
-  alert(`tu total es ${total}`);
- }
- else if (operacion == 3) {
-  let numero1 = prompt("primero numero para multiplicar");
-  let numero2 = prompt("segundo numero para multiplicar");
-  total = multiplicar(numero1,numero2);
-  alert(`tu total es ${total}`);
- }
- else if (operacion == 4) {
-  let numero1 = prompt("primero numero para dividir");
-  let numero2 = prompt("segundo numero para dividir");
-  total = dividir(numero1,numero2);
-  alert(`tu total es ${total}`);
- }
- else {
-  alert("nose a encontrado la operacion")
- }
+ app = new app("16000", "5 estrellas", "900mb");
+  app2 = new app("16000", "4 estrellas", "750mb");
+  app3 = new app("16000", "4 estrellas", "800mb");
+  app4 = new app("16000", "3 estrellas", "600mb");
+  app5 = new app("16000", "3.7 estrellas", "950mb");
+  app6 = new app("16000", "2 estrellas", "900mb");
+  app7 = new app("16000", "4.5 estrellas", "780mb");
+ 
+
+ document.write(`
+ ${app.appInfo()}<br>
+ ${app2.appInfo()}<br>
+ ${app3.appInfo()}<br>
+ ${app4.appInfo()}<br>
+ ${app5.appInfo()}<br>
+ ${app6.appInfo()}<br>
+ ${app7.appInfo()}<br>
+ `);
